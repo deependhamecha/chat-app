@@ -1,16 +1,47 @@
 # chat_app
 
-A new Flutter project.
+Installation firebase
 
-## Getting Started
+```sh
+npm install -g firebase-tools
+```
 
-This project is a starting point for a Flutter application.
+```sh
+firebase login
+```
+Install Firebase SDK
+```sh
+dart pub global activate flutterfire_cli
+```
 
-A few resources to get you started if this is your first Flutter project:
+```sh
+flutterfire configure
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Initialize Firebase in your app
+```sh
+flutter pub add firebase_core
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```sh
+flutterfire configure
+```
+
+*lib/main.dart*
+```dart
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+```
+
+Put this before `runApp()`.
+```dart
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+```
+
+```sh
+flutter run
+```
+
+If it doesn't work check the `main.dart` file of this project. There is a line added above `initializeApp` app.
